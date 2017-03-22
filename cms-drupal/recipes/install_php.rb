@@ -3,7 +3,13 @@
 # Recipe:: install_php
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
-package "php7.0"
+
+phpdeps=node['php']['packages']
+
+phpdeps.each do | phpdep |
+	package phpdep
+end
+
 
 service "apache2" do
 	action :restart
