@@ -9,4 +9,11 @@ execute "download_drupal" do
 	cwd "/tmp"
 end
 
+execute "empty_html_dir" do
+	command "rm -rf /var/www/html/* |:"
+end
+
+execute "extract_drupal" do
+	command "tar -xf /tmp/drupal-8.2.7.tar.gz --strip 1 -C /var/www/html"
+end
 
